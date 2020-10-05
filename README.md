@@ -3,7 +3,7 @@
 Momentum is a popular chrome homepage extension. This is an attempt to mimic that view using React.js
 
 ## Links:
-**Deployed Application:**
+**Deployed Application:** <https://maharit108.github.io/Momentum-mimic/>
 
 **Open API Used:**
 
@@ -34,8 +34,10 @@ Moment was used to get the current time, which is rendered at the center of the 
 
 
 
-## React run terminal
+## React Notes
 ### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Deploy React App: <https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-pages-in-less-than-5-minutes-d6c4ffd30f14>
