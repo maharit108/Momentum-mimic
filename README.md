@@ -9,15 +9,15 @@ Momentum is a popular chrome homepage extension. This is an attempt to mimic tha
 
   - **Unsplash API:** (for Images) <https://unsplash.com/>
 
-  -**Open Weather API:** (for weather of the day in the given city) <https://openweathermap.org/api>
+  - **Open Weather API:** (for weather of the day in the given city) <https://openweathermap.org/api>
 
-  -**Forismatic API:** (for Random Quotes) <https://forismatic.com/en/api/>
+  - **Forismatic API:** (for Random Quotes) <https://forismatic.com/en/api/>
 
 
 ## Technologies Used:
 - react.js
--Axiom
--curl and Postman.app
+- Axiom
+- curl and Postman.app
 
 ## Planning Story
 The idea was to build the front end similar to momentum extension. So, app would have a random background image and a quote at each reload, a weather widget at top right corner showing weather of the day of the given city and digital clock and greeting at the main body of app.
@@ -28,9 +28,9 @@ Moment was used to get the current time, which is rendered at the center of the 
 
 ## Future Plans:
   - Add calendar
-  -Add To-do-list
-  -Responsive Color of text with respect to background image contrast
-  -Incorporate location and username
+  - Add To-do-list
+  - Responsive Color of text with respect to background image contrast
+  - Incorporate location and username
 
 
 
