@@ -11,7 +11,7 @@ class App extends Component {
     // State with data for background image request to Unsplash API
     this.state = {
       imgUrl: '',
-      imgApiId: 'P8RTljdwjhMTG7xkg6pJkRJ-AZG-9mQY0k5yn-czQwg'
+      imgApiId: 'P8RTljdwjhMTG7xkg6pJkRJ-AZG-Unsplash_accessKey'
     }
   }
   componentDidMount () {

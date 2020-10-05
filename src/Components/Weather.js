@@ -11,7 +11,7 @@ class Weather extends Component {
       // data for API request
       sendData:{
         cityName: 'Chicago',
-        weatherkey: 'ee0b3bebd948b8d6f846ca3895a91c64'
+        weatherkey: 'ee0b3bebd948b8d6f846-OpenWeatherAccessKey'
       },
       icons: {
         clear: '☀',
