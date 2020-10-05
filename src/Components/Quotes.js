@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 import { getQuotes } from './../ApiCalls/apiCall.js'
+import './../styles/quotes.css'
 
+// Quotes component: make API request, gets random quotes and renders them
 class Quotes extends Component {
   constructor () {
     super()
-
     this.state = {
       quote: '',
       author: ''
@@ -20,13 +21,12 @@ class Quotes extends Component {
   render () {
     const {quote, author } = this.state
     return (
-      <footer>
-        <p>{quote}</p>
-        <p>- {author}</p>
+      <footer className='footer'>
+        <p className='smFont'>"{quote}"</p>
+        <p className='mdFont'>- {author}</p>
       </footer>
     )
   }
-
 }
 
 export default Quotes

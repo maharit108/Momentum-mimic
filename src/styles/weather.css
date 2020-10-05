@@ -1,0 +1,14 @@
+.rtTop {
+  align-self: flex-end;
+}
+.mdTemp {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 15px;
+  margin-bottom: 0;
+}
+.smTemp {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0;
+}

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
 import { getWeather } from './../ApiCalls/apiCall.js'
+import './../styles/weather.css'
 
+// Weather Component to show current weather for the day.
 class Weather extends Component {
   constructor () {
     super()
-
     this.state = {
+      // data for API request
       sendData:{
         cityName: 'Chicago',
         weatherkey: 'ee0b3bebd948b8d6f846ca3895a91c64'
@@ -23,6 +25,7 @@ class Weather extends Component {
       climate: ''
     }
   }
+
   componentDidMount () {
     getWeather(this.state.sendData)
       .then(res => this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main}))
@@ -30,6 +33,7 @@ class Weather extends Component {
   }
 
   render () {
+    // select icon as per weather update
     const { temp, climate, sendData, icons } = this.state
     let weatherIcon = ''
     if (climate === 'Clear') {
@@ -46,9 +50,9 @@ class Weather extends Component {
       weatherIcon = icons.mist
     }
     return (
-      <header>
-        <h3>{weatherIcon} {temp}{'\u00b0'}F</h3>
-        <h3>{sendData.cityName}</h3>
+      <header className='rtTop'>
+        <h3 className='mdTemp'>{weatherIcon} {temp}{'\u00b0'}F</h3>
+        <h3 className='smTemp'>{sendData.cityName}</h3>
       </header>
     )
   }

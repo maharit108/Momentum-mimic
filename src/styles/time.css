@@ -1,0 +1,14 @@
+.lgTime {
+  font-size: 9vw;
+  font-weight: 900;
+  margin: 8px;
+}
+.mdGreet {
+  font-size: 18px;
+  font-weight: 500;
+}
+@media screen and (min-width: 900px) {
+  .lgTime {
+     font-size: 81px;
+  }
+}
