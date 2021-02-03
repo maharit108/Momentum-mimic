@@ -12,7 +12,7 @@ class Weather extends Component {
       sendData:{
         cityName: 'Chicago',
         // access key from Open weather API here
-        weatherkey: 'ee0b3bebd948b8d6f846_accessKey'
+        weatherkey: process.env.REACT_APP_WEATHERMAP_KEY
       },
       icons: {
         clear: '☀',

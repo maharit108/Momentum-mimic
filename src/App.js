@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       imgUrl: '',
       // access key from Unsplash API here
-      imgApiId: 'P8RTljdwjhMTG7xkg6pJkRJ-AZG-accessKey'
+      imgApiId: process.env.REACT_APP_UNSPLASH_ACCESS
     }
   }
   componentDidMount () {
