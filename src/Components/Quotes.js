@@ -15,7 +15,6 @@ class Quotes extends Component {
   componentDidMount () {
     getQuotes()
       .then(res => {
-        console.log(res)
         this.setState({quote: res.data.quoteText, author: res.data.quoteAuthor})
       })
       .catch(console.error)

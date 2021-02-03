@@ -20,7 +20,7 @@ export const getQuotes = () => {
 // get request to Unsplash API to get random images for background images
 export const getImg = (imgApiId) => {
   return axios({
-    url: `https://api.unsplash.com/photos/random?client_id=${imgApiId}`,
+    url: `https://api.unsplash.com/photos/random?client_id=${imgApiId}&orientation=landscape&query=dark-background`,
     method: 'GET'
   })
 }
