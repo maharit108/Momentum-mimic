@@ -23,11 +23,46 @@ class Weather extends Component {
         clouds: '☁',
       },
       temp: '',
-      climate: ''
+      climate: '',
+      geoOption: {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      }
     }
   }
 
+  geoGranted = (loc) => {
+    console.log('location', loc)
+  }
+
+  geoError = (err) => {
+    console.log('error', err)
+  }
+
   componentDidMount () {
+
+    if(navigator.geolocation) {
+      navigator.permissions
+          .query({ name: 'geolocation' })
+          .then((res) => {
+              if (res.state === 'granted') {
+                  console.log(res.state)
+                  navigator.geolocation.getCurrentPosition(this.geoGranted)
+              } else if (res.state === 'prompt') {
+                  navigator.geolocation.getCurrentPosition(this.geoGranted, this.geoError, this.state.geoOption)
+              } else if (res.state === 'denied') {
+                  console.log('denied')
+              }
+              res.onChange = () => {
+                  console.log('res Change', res.state)
+              }
+          })
+
+  } else {
+      console.log('geoLocation feature not available')
+  }
+
     getWeather(this.state.sendData)
       .then(res => this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main}))
       .catch(console.error)
