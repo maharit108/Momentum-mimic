@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { getWeather } from './../ApiCalls/apiCall.js'
+import { getWeatherByCity, getWeatherByLat } from './../ApiCalls/apiCall.js'
 import './../styles/weather.css'
 
 // Weather Component to show current weather for the day.
@@ -9,11 +9,11 @@ class Weather extends Component {
     super()
     this.state = {
       // data for API request
-      sendData:{
-        cityName: 'Chicago',
-        // access key from Open weather API here
-        weatherkey: process.env.REACT_APP_WEATHERMAP_KEY
-      },
+      cityName: 'Chicago',
+      lat: null,
+      lon: null,
+      // access key from Open weather API here
+      weatherkey: process.env.REACT_APP_WEATHERMAP_KEY,
       icons: {
         clear: '☀',
         rain: '️🌧',
@@ -25,7 +25,7 @@ class Weather extends Component {
       temp: '',
       climate: '',
       geoOption: {
-        enableHighAccuracy: true,
+        enableHighAccuracy: false,
         timeout: 5000,
         maximumAge: 0,
       }
@@ -33,7 +33,23 @@ class Weather extends Component {
   }
 
   geoGranted = (loc) => {
-    console.log('location', loc)
+    this.setState({lat: Math.floor(loc.coords.latitude), lon: Math.floor(loc.coords.longitude)}, () => {
+      let sendData = {
+        weatherkey: this.state.weatherkey,
+        lat: this.state.lat,
+        lon: this.state.lon
+      }
+      console.log('loc', loc)
+      getWeatherByLat(sendData)
+      .then(res => {
+        this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main})
+      })
+      .catch(console.error)
+    })
+  }
+
+  setCity = (cityName) => {
+    this.setState({cityName: cityName})
   }
 
   geoError = (err) => {
@@ -59,18 +75,18 @@ class Weather extends Component {
               }
           })
 
-  } else {
+    } else {
       console.log('geoLocation feature not available')
-  }
+      // getWeatherByCity(this.state.sendData)
+      //   .then(res => this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main}))
+      //   .catch(console.error)
+    }
 
-    getWeather(this.state.sendData)
-      .then(res => this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main}))
-      .catch(console.error)
   }
 
   render () {
     // select icon as per weather update
-    const { temp, climate, sendData, icons } = this.state
+    const { temp, climate, cityName, icons } = this.state
     let weatherIcon = ''
     if (climate === 'Clear') {
       weatherIcon = icons.clear
@@ -88,7 +104,7 @@ class Weather extends Component {
     return (
       <header className='rtTop'>
         <h3 className='mdTemp'>{weatherIcon} {temp}{'\u00b0'}F</h3>
-        <h3 className='smTemp'>{sendData.cityName}</h3>
+        <h3 className='smTemp'>{cityName}</h3>
       </header>
     )
   }

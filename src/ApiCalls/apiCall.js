@@ -1,9 +1,16 @@
 import axios from 'axios'
 
 // get request to  Open Weather API to get current weather of given city.
-export const getWeather = temp => {
+export const getWeatherByCity = temp => {
   return axios({
     url: `https://api.openweathermap.org/data/2.5/weather?q=${temp.cityName}&units=imperial&appid=${temp.weatherkey}`,
+    method: 'GET'
+  })
+}
+
+export const getWeatherByLat = temp => {
+  return axios({
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${temp.lat}&lon=${temp.lon}&units=imperial&appid=${temp.weatherkey}`,
     method: 'GET'
   })
 }
