@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { getWeatherByCity, getWeatherByLat } from './../ApiCalls/apiCall.js'
+import { getWeatherByCity, getWeatherByLat, getCity } from './../ApiCalls/apiCall.js'
 import './../styles/weather.css'
 
 // Weather Component to show current weather for the day.
@@ -8,11 +8,9 @@ class Weather extends Component {
   constructor () {
     super()
     this.state = {
-      // data for API request
-      cityName: 'Chicago',
+      cityName: '',
       lat: null,
       lon: null,
-      // access key from Open weather API here
       weatherkey: process.env.REACT_APP_WEATHERMAP_KEY,
       icons: {
         clear: '☀',
@@ -32,56 +30,74 @@ class Weather extends Component {
     }
   }
 
+  // permission to get geoLocation granted
   geoGranted = (loc) => {
+    // Change state to current latitude and longitude
     this.setState({lat: Math.floor(loc.coords.latitude), lon: Math.floor(loc.coords.longitude)}, () => {
+  
+      // payload
       let sendData = {
         weatherkey: this.state.weatherkey,
         lat: this.state.lat,
         lon: this.state.lon
       }
-      console.log('loc', loc)
+      // get weather data API call
       getWeatherByLat(sendData)
-      .then(res => {
-        this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main})
-      })
-      .catch(console.error)
+        .then(res => {
+          this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main})
+        })
+        .catch(console.error)
     })
+
+    // get city name from LocationIQ Api corresponding to current location
+    let getCityData = {
+      locationKey: process.env.REACT_APP_LOC_KEY,
+      lat: loc.coords.latitude,
+      long: loc.coords.longitude
+    }
+    getCity(getCityData)
+      .then(res => this.setState({cityName: res.data.address.city}))
+      .catch(console.error)
   }
 
-  setCity = (cityName) => {
-    this.setState({cityName: cityName})
+  // if geoLocation is not available or permission denied
+  locationDenied = () => {
+    let cityInput = prompt('Enter the city you are in: ', 'Chicago')
+    this.setState({cityName: cityInput})
+    let sendData = {
+      weatherkey: this.state.weatherkey,
+      cityName: this.state.cityName
+    }
+    getWeatherByCity(sendData)
+      .then(res => this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main}))
+      .catch(console.error)
   }
 
+  // geoLocation Error
   geoError = (err) => {
-    console.log('error', err)
+    console.log('Error:', err)
+    this.locationDenied()
   }
 
   componentDidMount () {
-
+    // Geolocation API
     if(navigator.geolocation) {
       navigator.permissions
           .query({ name: 'geolocation' })
           .then((res) => {
               if (res.state === 'granted') {
-                  console.log(res.state)
                   navigator.geolocation.getCurrentPosition(this.geoGranted)
               } else if (res.state === 'prompt') {
                   navigator.geolocation.getCurrentPosition(this.geoGranted, this.geoError, this.state.geoOption)
               } else if (res.state === 'denied') {
-                  console.log('denied')
-              }
-              res.onChange = () => {
-                  console.log('res Change', res.state)
+                  console.log('Location Permission Denied')
+                  this.locationDenied()
               }
           })
-
     } else {
       console.log('geoLocation feature not available')
-      // getWeatherByCity(this.state.sendData)
-      //   .then(res => this.setState({temp: res.data.main.temp, climate: res.data.weather[0].main}))
-      //   .catch(console.error)
+      this.locationDenied()
     }
-
   }
 
   render () {

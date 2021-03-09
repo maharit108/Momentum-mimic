@@ -8,9 +8,18 @@ export const getWeatherByCity = temp => {
   })
 }
 
+// get request to  Open Weather API to get current weather of given coordinate.
 export const getWeatherByLat = temp => {
   return axios({
     url: `https://api.openweathermap.org/data/2.5/weather?lat=${temp.lat}&lon=${temp.lon}&units=imperial&appid=${temp.weatherkey}`,
+    method: 'GET'
+  })
+}
+
+// get request to  Open Weather API to get current weather of given coordinate.
+export const getCity = temp => {
+  return axios({
+    url: `https://us1.locationiq.com/v1/reverse.php?key=${temp.locationKey}&lat=${temp.lat}&lon=${temp.long}&format=json`,
     method: 'GET'
   })
 }
