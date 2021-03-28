@@ -24,7 +24,7 @@ class Weather extends Component {
       climate: '',
       geoOption: {
         enableHighAccuracy: false,
-        timeout: 5000,
+        timeout: 10000,
         maximumAge: 0,
       }
     }

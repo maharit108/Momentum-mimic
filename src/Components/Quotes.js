@@ -15,17 +15,22 @@ class Quotes extends Component {
   componentDidMount () {
     getQuotes()
       .then(res => {
-        this.setState({quote: res.data.quoteText, author: res.data.quoteAuthor})
+        let n = this.randomNumber(res.data.length)
+        this.setState({quote: res.data[n].text, author: res.data[n].author})
       })
       .catch(console.error)
   }
+
+  randomNumber = (max) => { 
+    return Math.floor(Math.random() * max);
+  } 
 
   render () {
     const {quote, author } = this.state
     return (
       <footer className='footer'>
         <p className='smFont'>"{quote}"</p>
-        <p className='mdFont'>- {author}</p>
+        <p className='mdFont'>- {author ? author : 'unknown'}</p>
       </footer>
     )
   }

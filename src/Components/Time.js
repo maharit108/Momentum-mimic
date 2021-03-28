@@ -32,18 +32,18 @@ class Time extends Component {
 
     let timeGreet = ''
     if (ampm === 'AM') {
-      timeGreet = 'Good Morning, '
+      timeGreet = 'Good Morning! '
     } else {
       if (parseInt(timeHr[0] < 6)) {
-        timeGreet = 'Good Afternoon, '
+        timeGreet = 'Good Afternoon! '
       } else {
-        timeGreet = 'Good Evening, '
+        timeGreet = 'Good Evening! '
       }
     }
     return (
       <div className='mid'>
         <h1 className='lgTime'>{time}</h1>
-        <h1 className='mdGreet'>{timeGreet} Trevor</h1>
+        <h1 className='mdGreet'>{timeGreet}</h1>
       </div>
     )
   }
