@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "de6f4f4608bbc961d7f41e377bc20f6a",
+    "revision": "d360e1057c73770280ce21d67fe25133",
     "url": "/Momentum-mimic/index.html"
   },
   {
-    "revision": "7ff0cdc7d7c28160268d",
+    "revision": "68850269f7bcdeb99b7d",
     "url": "/Momentum-mimic/static/css/main.9e031b55.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Momentum-mimic/static/js/2.79070238.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7ff0cdc7d7c28160268d",
-    "url": "/Momentum-mimic/static/js/main.4b24d7db.chunk.js"
+    "revision": "68850269f7bcdeb99b7d",
+    "url": "/Momentum-mimic/static/js/main.083f2f31.chunk.js"
   },
   {
     "revision": "217c2aa96ecd9665631f",

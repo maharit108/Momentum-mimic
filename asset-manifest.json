@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Momentum-mimic/static/css/main.9e031b55.chunk.css",
-    "main.js": "/Momentum-mimic/static/js/main.4b24d7db.chunk.js",
-    "main.js.map": "/Momentum-mimic/static/js/main.4b24d7db.chunk.js.map",
+    "main.js": "/Momentum-mimic/static/js/main.083f2f31.chunk.js",
+    "main.js.map": "/Momentum-mimic/static/js/main.083f2f31.chunk.js.map",
     "runtime-main.js": "/Momentum-mimic/static/js/runtime-main.7451168e.js",
     "runtime-main.js.map": "/Momentum-mimic/static/js/runtime-main.7451168e.js.map",
     "static/js/2.79070238.chunk.js": "/Momentum-mimic/static/js/2.79070238.chunk.js",
     "static/js/2.79070238.chunk.js.map": "/Momentum-mimic/static/js/2.79070238.chunk.js.map",
     "index.html": "/Momentum-mimic/index.html",
-    "precache-manifest.941ada5c92cf62f4acbd3b215f2eae9e.js": "/Momentum-mimic/precache-manifest.941ada5c92cf62f4acbd3b215f2eae9e.js",
+    "precache-manifest.9059762a43027846e01b548041e50649.js": "/Momentum-mimic/precache-manifest.9059762a43027846e01b548041e50649.js",
     "service-worker.js": "/Momentum-mimic/service-worker.js",
     "static/css/main.9e031b55.chunk.css.map": "/Momentum-mimic/static/css/main.9e031b55.chunk.css.map",
     "static/js/2.79070238.chunk.js.LICENSE.txt": "/Momentum-mimic/static/js/2.79070238.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.7451168e.js",
     "static/js/2.79070238.chunk.js",
     "static/css/main.9e031b55.chunk.css",
-    "static/js/main.4b24d7db.chunk.js"
+    "static/js/main.083f2f31.chunk.js"
   ]
 }
