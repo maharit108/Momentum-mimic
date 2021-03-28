@@ -11,7 +11,7 @@ Momentum is a popular chrome homepage extension. This is an attempt to mimic tha
 
   - **Open Weather API:** (for weather of the day in the given city) <https://openweathermap.org/api>
 
-  - **Forismatic API:** (for Random Quotes) <https://forismatic.com/en/api/>
+  - **Random Quotes:** <https://type.fit/api/quotes>
 
 
 ## Technologies Used:
@@ -29,8 +29,6 @@ Moment was used to get the current time, which is rendered at the center of the 
 ## Future Plans:
   - Add calendar
   - Add To-do-list
-  - Responsive Color of text with respect to background image contrast
-  - Incorporate location and username
 
 
 
